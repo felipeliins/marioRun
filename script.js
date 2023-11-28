@@ -7,6 +7,7 @@ const gameOver = document.querySelector('.game-over')
 
 audioStart = new Audio('./soung/audio_theme.mp3')
 audioGameOver = new Audio('./soung/audio_gameover.mp3')
+audioCoin = new Audio('./soung/coin.mp3')
 
 var score = 0;
 var cu = 0;
@@ -151,9 +152,6 @@ const loop = () => {
       mario.src = './img/game-over.png'
       mario.style.width = '80px'
       mario.style.marginLeft = '50px'
-
-      
-      
       
       function stopAudioStart() {
         audioStart.pause()
@@ -181,7 +179,7 @@ const loop = () => {
       marioPositionTop + marioHeight > coinPositionTop) {
         verifica1 = 1;
         cu = 0;
-
+        audioCoin.play()
         // faz a moeda desaparecer de forma suave
         fadeCoin() // <--- chame a função aqui
         mario.style.width = '200px'
